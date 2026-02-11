@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>Virgin Courtyard - Luxury Fine Dining Chandigarh</title>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,6 +37,8 @@
             color: var(--cream);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -49,6 +51,7 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
+            width: 100%;
         }
         
         /* ===== PRELOADER ===== */
@@ -68,6 +71,7 @@
         
         .preloader-content {
             text-align: center;
+            padding: 0 20px;
         }
         
         .preloader h1 {
@@ -83,7 +87,7 @@
             animation: fadeIn 2.5s ease;
         }
         
-        /* ===== CUSTOM CURSOR ===== */
+        /* ===== CUSTOM CURSOR - HIDE ON MOBILE ===== */
         .cursor {
             width: 10px;
             height: 10px;
@@ -94,6 +98,18 @@
             z-index: 9999;
             transition: transform 0.2s ease;
             box-shadow: 0 0 20px var(--gold);
+        }
+        
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 28px;
+            color: var(--gold);
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            transition: color 0.3s;
+            z-index: 1001;
         }
         
         /* ===== NAVIGATION ===== */
@@ -107,14 +123,14 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: background 0.5s ease;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+            transition: all 0.5s ease;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95), transparent);
         }
         
         .navbar.scrolled {
             background: var(--black);
             padding: 20px 60px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
         }
         
         .logo {
@@ -124,6 +140,7 @@
             color: var(--gold);
             letter-spacing: 4px;
             text-decoration: none;
+            line-height: 1.2;
         }
         
         .logo span {
@@ -146,6 +163,7 @@
             letter-spacing: 2px;
             transition: color 0.3s;
             position: relative;
+            white-space: nowrap;
         }
         
         .nav-links a::after {
@@ -178,6 +196,7 @@
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
+            white-space: nowrap;
         }
         
         .book-btn:hover {
@@ -188,7 +207,8 @@
         /* ===== HERO SECTION ===== */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.8)),
+            min-height: 600px;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.9)),
                         url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-position: center;
@@ -198,11 +218,13 @@
             justify-content: center;
             text-align: center;
             position: relative;
+            width: 100%;
         }
         
         .hero-content {
             max-width: 900px;
             padding: 20px;
+            width: 100%;
         }
         
         .hero-subtitle {
@@ -234,6 +256,7 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            padding: 0 15px;
         }
         
         .hero-buttons {
@@ -252,6 +275,7 @@
             letter-spacing: 2px;
             border: 2px solid var(--gold);
             transition: all 0.3s;
+            display: inline-block;
         }
         
         .btn-primary:hover {
@@ -269,6 +293,7 @@
             letter-spacing: 2px;
             border: 2px solid var(--cream);
             transition: all 0.3s;
+            display: inline-block;
         }
         
         .btn-secondary:hover {
@@ -331,6 +356,7 @@
         .feature-item i {
             color: var(--gold);
             font-size: 24px;
+            min-width: 30px;
         }
         
         .about-image {
@@ -359,6 +385,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
         }
         
         .experience-badge span {
@@ -370,10 +397,11 @@
         /* ===== MENU SECTION ===== */
         .menu {
             padding: 120px 0;
-            background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)),
+            background: linear-gradient(rgba(10,10,10,0.95), rgba(10,10,10,0.95)),
                         url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-attachment: fixed;
             background-size: cover;
+            background-position: center;
         }
         
         .section-header {
@@ -399,6 +427,7 @@
             justify-content: center;
             gap: 30px;
             margin-bottom: 60px;
+            flex-wrap: wrap;
         }
         
         .category-btn {
@@ -497,6 +526,9 @@
             color: var(--cream);
             font-size: 16px;
             transition: all 0.3s;
+            border-radius: 0;
+            -webkit-appearance: none;
+            appearance: none;
         }
         
         .form-group input:focus,
@@ -582,6 +614,18 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+        
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
         
         .timing-grid {
@@ -595,11 +639,16 @@
             background: rgba(255,255,255,0.05);
             padding: 20px;
             text-align: center;
+            border-radius: 5px;
         }
         
         .timing-item h4 {
             color: var(--gold);
             margin-bottom: 10px;
+        }
+        
+        .timing-item p {
+            color: rgba(255,255,255,0.9);
         }
         
         /* ===== GALLERY SECTION ===== */
@@ -673,12 +722,25 @@
             color: var(--gold);
             font-size: 24px;
             margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
         }
         
         .footer-col p {
             color: rgba(255,255,255,0.7);
             margin-bottom: 15px;
             font-size: 14px;
+            line-height: 1.8;
         }
         
         .social-links {
@@ -690,11 +752,20 @@
         .social-links a {
             color: var(--cream);
             font-size: 20px;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
         
         .social-links a:hover {
-            color: var(--gold);
+            color: var(--black);
+            background: var(--gold);
+            transform: translateY(-5px);
         }
         
         .footer-bottom {
@@ -733,29 +804,53 @@
             animation: fadeIn 1s ease;
         }
         
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 1200px) {
+        /* ===== 🌟🌟🌟 ENHANCED MOBILE RESPONSIVE - FULLY FIXED 🌟🌟🌟 ===== */
+        
+        /* Large Tablets (992px and below) */
+        @media (max-width: 992px) {
             .container {
                 padding: 0 30px;
             }
             
-            .hero-title {
-                font-size: 60px;
+            .navbar {
+                padding: 20px 30px;
             }
             
-            .menu-grid,
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .navbar {
-                padding: 20px;
+            .mobile-menu-btn {
+                display: block !important;
             }
             
             .nav-links {
-                display: none;
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--black);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: left 0.5s ease;
+                z-index: 1000;
+                box-shadow: 5px 0 30px rgba(0,0,0,0.5);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+            
+            .book-btn {
+                order: 1;
+                margin-right: 15px;
+                padding: 10px 20px;
+                font-size: 13px;
             }
             
             .about-grid,
@@ -763,26 +858,513 @@
             .location-grid,
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .about-image {
+                order: -1;
             }
             
             .experience-badge {
                 bottom: -20px;
                 left: 20px;
+                width: 120px;
+                height: 120px;
+                padding: 20px;
+            }
+            
+            .experience-badge span {
+                font-size: 36px;
+            }
+            
+            .footer-col {
+                text-align: center;
+            }
+            
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
             }
         }
         
+        /* Tablets (768px and below) */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .navbar {
+                padding: 15px 20px;
+            }
+            
+            .navbar.scrolled {
+                padding: 15px 20px;
+            }
+            
+            .logo {
+                font-size: 22px;
+            }
+            
+            .logo span {
+                font-size: 10px;
+            }
+            
+            .book-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+                margin-right: 10px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 24px;
+            }
+            
+            .hero {
+                background-attachment: scroll;
+                min-height: 100vh;
+            }
+            
             .hero-title {
                 font-size: 42px;
+            }
+            
+            .hero-subtitle {
+                font-size: 12px;
+                letter-spacing: 4px;
+            }
+            
+            .hero-desc {
+                font-size: 16px;
+                padding: 0 15px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                padding: 0 20px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+                padding: 14px 30px;
+                font-size: 15px;
+            }
+            
+            .about,
+            .menu,
+            .reservation,
+            .location,
+            .gallery {
+                padding: 60px 0;
+            }
+            
+            .about-content h2,
+            .reservation-content h2,
+            .location-info h2 {
+                font-size: 36px;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .feature-item {
+                justify-content: flex-start;
+            }
+            
+            .about-image img {
+                height: 400px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .menu-categories {
+                gap: 10px;
+                margin-bottom: 40px;
+            }
+            
+            .category-btn {
+                font-size: 14px;
+                padding: 8px 16px;
             }
             
             .menu-grid,
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .menu-item {
+                padding: 25px;
+            }
+            
+            .reservation-form {
+                padding: 30px 20px;
+            }
+            
+            .reservation-form h3 {
+                font-size: 24px !important;
             }
             
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+                font-size: 15px;
+            }
+            
+            .address-card {
+                padding: 30px;
+            }
+            
+            .timing-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .gallery-item {
+                height: 250px;
+            }
+            
+            .footer-content {
+                gap: 40px;
+            }
+            
+            .footer-col h3 {
+                margin-bottom: 20px;
+                font-size: 22px;
+            }
+            
+            .footer-col p {
+                font-size: 13px;
+            }
+            
+            .cursor {
+                display: none;
+            }
+            
+            .preloader h1 {
+                font-size: 32px;
+            }
+            
+            .preloader p {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+        }
+        
+        /* Small Phones (480px and below) */
+        @media (max-width: 480px) {
+            .navbar {
+                padding: 12px 15px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .logo span {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+            
+            .book-btn {
+                padding: 6px 12px;
+                font-size: 11px;
+                margin-right: 8px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 22px;
+            }
+            
+            .nav-links {
+                width: 100%;
+                max-width: none;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 10px;
+                letter-spacing: 3px;
+            }
+            
+            .hero-desc {
+                font-size: 14px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+            
+            .about-content h2,
+            .reservation-content h2,
+            .location-info h2,
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .about-content p {
+                font-size: 14px;
+            }
+            
+            .experience-badge {
+                width: 90px;
+                height: 90px;
+                bottom: -15px;
+                left: 15px;
+                padding: 15px;
+            }
+            
+            .experience-badge span {
+                font-size: 24px;
+            }
+            
+            .experience-badge {
+                font-size: 10px;
+            }
+            
+            .about-image img {
+                height: 300px;
+            }
+            
+            .menu-item h4 {
+                font-size: 20px;
+            }
+            
+            .menu-item p {
+                font-size: 13px;
+            }
+            
+            .menu-price {
+                font-size: 18px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .submit-btn {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .address-card i {
+                font-size: 28px;
+            }
+            
+            .address-card h3 {
+                font-size: 20px;
+            }
+            
+            .address-card p {
+                font-size: 14px;
+            }
+            
+            .timing-item h4 {
+                font-size: 18px;
+            }
+            
+            .timing-item p {
+                font-size: 13px;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
+            
+            .footer-col h3 {
+                font-size: 20px;
+            }
+            
+            .footer-bottom p {
+                font-size: 12px;
+            }
+            
+            .preloader h1 {
+                font-size: 24px;
+            }
+            
+            .preloader p {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+        }
+        
+        /* Small Phones (380px and below) */
+        @media (max-width: 380px) {
+            .navbar {
+                padding: 10px 12px;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
+            
+            .logo span {
+                font-size: 7px;
+            }
+            
+            .book-btn {
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+            
+            .hero-desc {
+                font-size: 13px;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+            
+            .section-title {
+                font-size: 26px;
+            }
+        }
+        
+        /* Landscape Mode */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .hero {
+                min-height: 500px;
+                height: auto;
+                padding: 100px 0;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-desc {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: row;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 10px 25px;
+                font-size: 14px;
+            }
+            
+            .nav-links {
+                padding: 20px 0;
+                justify-content: flex-start;
+            }
+        }
+        
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+            .menu-item:hover,
+            .gallery-item:hover img,
+            .social-links a:hover,
+            .btn-primary:hover,
+            .btn-secondary:hover,
+            .book-btn:hover,
+            .submit-btn:hover {
+                transform: none;
+            }
+            
+            .category-btn.active {
+                color: var(--gold);
+                border-bottom-color: var(--gold);
+            }
+            
+            .nav-links a:active {
+                color: var(--gold);
+            }
+        }
+        
+        /* iPhone Safe Area Support */
+        @supports (padding: max(0px)) {
+            .navbar {
+                padding-left: max(60px, env(safe-area-inset-left));
+                padding-right: max(60px, env(safe-area-inset-right));
+            }
+            
+            @media (max-width: 992px) {
+                .navbar {
+                    padding-left: max(30px, env(safe-area-inset-left));
+                    padding-right: max(30px, env(safe-area-inset-right));
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .navbar {
+                    padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right));
+                }
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            .navbar,
+            .preloader,
+            .scroll-indicator,
+            .reservation-form,
+            .footer-col:last-child,
+            .social-links {
+                display: none;
+            }
+            
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .hero,
+            .about,
+            .menu,
+            .reservation,
+            .location,
+            .gallery,
+            footer {
+                background: white;
+                color: black;
+            }
+            
+            .hero-title,
+            .section-title,
+            .about-content h2 {
+                color: black;
             }
         }
     </style>
@@ -797,7 +1379,7 @@
     </div>
 </div>
 
-<!-- CUSTOM CURSOR -->
+<!-- CUSTOM CURSOR - HIDDEN ON MOBILE -->
 <div class="cursor" id="cursor"></div>
 
 <!-- NAVIGATION -->
@@ -807,7 +1389,7 @@
         <span>LUXURY FINE DINING</span>
     </a>
     
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
         <a href="#home">HOME</a>
         <a href="#about">ABOUT</a>
         <a href="#menu">MENU</a>
@@ -817,6 +1399,9 @@
     </div>
     
     <a href="#reservation" class="book-btn">BOOK TABLE</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </button>
 </nav>
 
 <!-- HERO SECTION -->
@@ -880,7 +1465,7 @@
             </div>
             
             <div class="about-image">
-                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Virgin Courtyard Interior">
+                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Virgin Courtyard Interior" loading="lazy">
                 <div class="experience-badge">
                     <span>25</span>
                     YEARS
@@ -1096,7 +1681,8 @@
                     height="600" 
                     style="border:0;" 
                     allowfullscreen="" 
-                    loading="lazy">
+                    loading="lazy"
+                    title="Virgin Courtyard Location">
                 </iframe>
             </div>
         </div>
@@ -1113,56 +1699,56 @@
         
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Interior">
+                <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Interior" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Signature Dish">
+                <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Signature Dish" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wine Cellar">
+                <img src="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wine Cellar" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Private Dining">
+                <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Private Dining" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chef Special">
+                <img src="https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chef Special" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Ambiance">
+                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Ambiance" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/10107754/pexels-photo-10107754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cocktail Bar">
+                <img src="https://images.pexels.com/photos/10107754/pexels-photo-10107754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cocktail Bar" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
             </div>
             
             <div class="gallery-item">
-                <img src="https://images.pexels.com/photos/323682/pexels-photo-323682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dessert">
+                <img src="https://images.pexels.com/photos/323682/pexels-photo-323682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dessert" loading="lazy">
                 <div class="gallery-overlay">
                     <i class="fas fa-search-plus"></i>
                 </div>
@@ -1182,10 +1768,10 @@
                     Chandigarh's premier destination for luxury fine dining.
                 </p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Tripadvisor"><i class="fab fa-tripadvisor"></i></a>
                 </div>
             </div>
             
@@ -1220,8 +1806,8 @@
                 <h3>NEWSLETTER</h3>
                 <p>Subscribe for exclusive offers and events</p>
                 <div style="display: flex; margin-top: 20px;">
-                    <input type="email" placeholder="Email Address" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: var(--cream);">
-                    <button style="background: var(--gold); color: var(--black); padding: 12px 20px; border: none; cursor: pointer;">
+                    <input type="email" placeholder="Email Address" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: var(--cream); border-radius: 0;">
+                    <button style="background: var(--gold); color: var(--black); padding: 12px 20px; border: none; cursor: pointer; transition: all 0.3s;">
                         <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
@@ -1229,7 +1815,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Virgin Courtyard - Luxury Fine Dining. All rights reserved.</p>
+            <p>&copy; 2024 Virgin Courtyard - Luxury Fine Dining. All rights reserved.</p>
             <p style="margin-top: 10px; font-size: 12px;">Chandigarh's Most Exclusive Dining Destination</p>
         </div>
     </div>
@@ -1247,21 +1833,23 @@
         }, 1500);
     });
     
-    // CUSTOM CURSOR
-    const cursor = document.getElementById('cursor');
-    
-    document.addEventListener('mousemove', function(e) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-    });
-    
-    document.addEventListener('mousedown', function() {
-        cursor.style.transform = 'scale(0.8)';
-    });
-    
-    document.addEventListener('mouseup', function() {
-        cursor.style.transform = 'scale(1)';
-    });
+    // CUSTOM CURSOR - ONLY ON DESKTOP
+    if (window.innerWidth > 992) {
+        const cursor = document.getElementById('cursor');
+        
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        
+        document.addEventListener('mousedown', function() {
+            cursor.style.transform = 'scale(0.8)';
+        });
+        
+        document.addEventListener('mouseup', function() {
+            cursor.style.transform = 'scale(1)';
+        });
+    }
     
     // NAVBAR SCROLL EFFECT
     window.addEventListener('scroll', function() {
@@ -1272,6 +1860,58 @@
             navbar.classList.remove('scrolled');
         }
     });
+    
+    // MOBILE MENU TOGGLE
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (mobileMenuBtn && navLinks) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+            
+            const icon = this.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close menu when clicking on a link
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navLinks.contains(event.target) && 
+                !mobileMenuBtn.contains(event.target) && 
+                navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Initialize - hide nav links on mobile
+        if (window.innerWidth <= 992) {
+            navLinks.style.display = 'flex';
+            navLinks.classList.remove('active');
+        }
+    }
     
     // SMOOTH SCROLLING
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1304,45 +1944,82 @@
     document.getElementById('reservationForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
-        const name = this.querySelector('input[placeholder="First Name"]').value + ' ' + 
-                    this.querySelector('input[placeholder="Last Name"]').value;
+        const firstName = this.querySelector('input[placeholder="First Name"]').value;
+        const lastName = this.querySelector('input[placeholder="Last Name"]').value;
+        const name = firstName + ' ' + lastName;
         const email = this.querySelector('input[type="email"]').value;
         const phone = this.querySelector('input[type="tel"]').value;
         const date = this.querySelector('input[type="date"]').value;
-        const time = this.querySelector('select').value;
+        const time = this.querySelectorAll('select')[0].value;
+        const guests = this.querySelectorAll('select')[1].value;
+        const occasion = this.querySelectorAll('select')[2]?.value || 'Not specified';
+        const specialRequests = this.querySelector('textarea').value;
         
-        // Create WhatsApp message for you (admin)
-        const adminMessage = `New Reservation - Virgin Courtyard%0A%0A` +
+        const formattedDate = date ? new Date(date).toLocaleDateString('en-IN', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        }) : 'Not specified';
+        
+        const adminMessage = `🔴 NEW RESERVATION - VIRGIN COURTYARD 🔴%0A%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                           `👤 GUEST DETAILS%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
                            `Name: ${name}%0A` +
                            `Email: ${email}%0A` +
-                           `Phone: ${phone}%0A` +
-                           `Date: ${date}%0A` +
-                           `Time: ${time}%0A%0A` +
+                           `Phone: ${phone}%0A%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                           `📅 RESERVATION DETAILS%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                           `Date: ${formattedDate}%0A` +
+                           `Time: ${time}%0A` +
+                           `Guests: ${guests}%0A` +
+                           `Occasion: ${occasion}%0A%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                           `📝 SPECIAL REQUESTS%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                           `${specialRequests || 'None'}%0A%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                           `📍 S.C.O- 1A (backlane), Sector 7 C, Chandigarh%0A` +
+                           `📞 +91 172 456 7890%0A` +
+                           `━━━━━━━━━━━━━━━━━━━━━%0A` +
                            `Please confirm this booking.`;
         
-        // Create WhatsApp message for client (confirmation)
-        const clientMessage = `Thank you for choosing Virgin Courtyard!%0A%0A` +
-                            `Your reservation request has been received:%0A` +
-                            `Date: ${date}%0A` +
-                            `Time: ${time}%0A` +
-                            `Guests: ${this.querySelectorAll('select')[1].value}%0A%0A` +
+        const clientMessage = `✨ Thank you for choosing Virgin Courtyard! ✨%0A%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                            `✅ RESERVATION CONFIRMATION%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━%0A%0A` +
+                            `Dear ${firstName},%0A%0A` +
+                            `Your reservation request has been received:%0A%0A` +
+                            `📅 Date: ${formattedDate}%0A` +
+                            `⏰ Time: ${time}%0A` +
+                            `👥 Guests: ${guests}%0A` +
+                            `🎉 Occasion: ${occasion}%0A%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                            `📍 VENUE DETAILS%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                            `Virgin Courtyard%0A` +
+                            `S.C.O- 1A (backlane), Sector 7 C%0A` +
+                            `Madhya Marg, Chandigarh - 160019%0A%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                            `📞 CONTACT%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                            `Phone: +91 172 456 7890%0A` +
+                            `Email: reservations@virgincourtyard.com%0A%0A` +
                             `Our team will confirm your booking shortly.%0A%0A` +
-                            `📍 S.C.O- 1A (backlane), Sector 7 C, Chandigarh%0A` +
-                            `📞 +91 172 456 7890`;
+                            `━━━━━━━━━━━━━━━━━━━━━%0A` +
+                            `We look forward to serving you!%0A` +
+                            `━━━━━━━━━━━━━━━━━━━━━`;
         
-        // Send to admin (your WhatsApp)
         window.open(`https://wa.me/919876543210?text=${adminMessage}`, '_blank');
         
-        // Send to client (their WhatsApp)
-        setTimeout(() => {
-            window.open(`https://wa.me/${phone}?text=${clientMessage}`, '_blank');
-        }, 1000);
+        if (phone) {
+            setTimeout(() => {
+                window.open(`https://wa.me/${phone.replace(/\D/g, '')}?text=${clientMessage}`, '_blank');
+            }, 1000);
+        }
         
-        // Show success message
-        alert('Thank you! Your reservation request has been sent. You will receive confirmation shortly.');
-        
-        // Reset form
+        alert('Thank you! Your reservation request has been sent. You will receive confirmation on WhatsApp shortly.');
         this.reset();
     });
     
@@ -1365,6 +2042,17 @@
         el.style.opacity = '0';
         observer.observe(el);
     });
+    
+    // TOUCH DEVICE DETECTION
+    function isTouchDevice() {
+        return ('ontouchstart' in window) || 
+               (navigator.maxTouchPoints > 0) || 
+               (navigator.msMaxTouchPoints > 0);
+    }
+    
+    if (isTouchDevice()) {
+        document.body.classList.add('touch-device');
+    }
 </script>
 
 </body>
