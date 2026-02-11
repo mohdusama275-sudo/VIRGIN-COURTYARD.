@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virgin Courtyard - Luxury Fine Dining Chandigarh</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ===== LUXURY COLOR PALETTE ===== */
+        :root {
+            --gold: #D4AF37;
+            --burgundy: #800020;
+            --cream: #FFFDD0;
+            --charcoal: #36454F;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --champagne: #F7E7CE;
+            --olive: #708238;
+        }
+        
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* ===== PRELOADER ===== */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease;
+        }
+        
+        .preloader-content {
+            text-align: center;
+        }
+        
+        .preloader h1 {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease;
+        }
+        
+        .preloader p {
+            color: var(--cream);
+            letter-spacing: 5px;
+            animation: fadeIn 2.5s ease;
+        }
+        
+        /* ===== CUSTOM CURSOR ===== */
+        .cursor {
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.2s ease;
+            box-shadow: 0 0 20px var(--gold);
+        }
+        
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background 0.5s ease;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.9), transparent);
+        }
+        
+        .navbar.scrolled {
+            background: var(--black);
+            padding: 20px 60px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        }
+        
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 4px;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--cream);
+            font-size: 14px;
+            display: block;
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .book-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            padding: 12px 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .book-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10,10,10,0.6), rgba(10,10,10,0.8)),
+                        url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            padding: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            letter-spacing: 8px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title {
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-title span {
+            color: var(--gold);
+        }
+        
+        .hero-desc {
+            font-size: 18px;
+            color: var(--cream);
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 2px solid var(--gold);
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--cream);
+            padding: 15px 40px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: 2px solid var(--cream);
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--cream);
+            color: var(--black);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        .scroll-indicator i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+        
+        /* ===== ABOUT SECTION ===== */
+        .about {
+            padding: 120px 0;
+            background: var(--black);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .about-content p {
+            color: var(--cream);
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .feature-item i {
+            color: var(--gold);
+            font-size: 24px;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 30px;
+            text-align: center;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .experience-badge span {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        /* ===== MENU SECTION ===== */
+        .menu {
+            padding: 120px 0;
+            background: linear-gradient(rgba(10,10,10,0.9), rgba(10,10,10,0.9)),
+                        url('https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-subtitle {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            font-size: 48px;
+            color: var(--cream);
+            margin-bottom: 20px;
+        }
+        
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .category-btn {
+            background: transparent;
+            border: none;
+            color: var(--cream);
+            font-size: 16px;
+            font-weight: 500;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .category-btn.active {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .menu-item {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+            border: 1px solid rgba(212,175,55,0.2);
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+        }
+        
+        .menu-item h4 {
+            color: var(--gold);
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .menu-item p {
+            color: var(--cream);
+            font-size: 14px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .menu-price {
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        /* ===== RESERVATION SECTION ===== */
+        .reservation {
+            padding: 120px 0;
+            background: var(--charcoal);
+        }
+        
+        .reservation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .reservation-content h2 {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .reservation-form {
+            background: var(--black);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(212,175,55,0.3);
+            color: var(--cream);
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(212,175,55,0.1);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        
+        /* ===== LOCATION SECTION ===== */
+        .location {
+            padding: 120px 0;
+            background: var(--black);
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+        
+        .location-info h2 {
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        
+        .address-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .address-card i {
+            color: var(--gold);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .address-card h3 {
+            color: var(--cream);
+            margin-bottom: 15px;
+        }
+        
+        .address-card p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .timing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .timing-item {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .timing-item h4 {
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        
+        /* ===== GALLERY SECTION ===== */
+        .gallery {
+            padding: 120px 0;
+            background: var(--charcoal);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: var(--gold);
+            font-size: 40px;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black);
+            padding: 80px 0 30px;
+            border-top: 1px solid rgba(212,175,55,0.2);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        
+        .footer-col h3 {
+            color: var(--gold);
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: var(--cream);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease;
+        }
+        
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 30px;
+            }
+            
+            .hero-title {
+                font-size: 60px;
+            }
+            
+            .menu-grid,
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .about-grid,
+            .reservation-grid,
+            .location-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .experience-badge {
+                bottom: -20px;
+                left: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 42px;
+            }
+            
+            .menu-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <h1>VIRGIN COURTYARD</h1>
+        <p>LUXURY FINE DINING</p>
+    </div>
+</div>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor" id="cursor"></div>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <a href="#" class="logo">
+        VIRGIN COURTYARD
+        <span>LUXURY FINE DINING</span>
+    </a>
+    
+    <div class="nav-links">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#menu">MENU</a>
+        <a href="#reservation">RESERVATIONS</a>
+        <a href="#location">LOCATION</a>
+        <a href="#gallery">GALLERY</a>
+    </div>
+    
+    <a href="#reservation" class="book-btn">BOOK TABLE</a>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-subtitle fade-in">WELCOME TO</div>
+        <h1 class="hero-title fade-in">
+            <span>VIRGIN</span> COURTYARD
+        </h1>
+        <p class="hero-desc fade-in">
+            Experience the epitome of luxury fine dining in the heart of Chandigarh. 
+            Where culinary artistry meets timeless elegance.
+        </p>
+        <div class="hero-buttons fade-in">
+            <a href="#reservation" class="btn-primary">RESERVE TABLE</a>
+            <a href="#menu" class="btn-secondary">VIEW MENU</a>
+        </div>
+    </div>
+    
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-content">
+                <h2>A Legacy of Excellence</h2>
+                <p>
+                    Nestled in the prestigious Sector 7C, Virgin Courtyard stands as Chandigarh's 
+                    most exclusive fine dining destination. Our commitment to culinary excellence 
+                    and impeccable service has made us the preferred choice for connoisseurs of 
+                    fine cuisine.
+                </p>
+                <p>
+                    Each dish is a masterpiece, crafted with the finest ingredients from around 
+                    the world. Our sommelier-curated wine collection features over 500 labels 
+                    from the most celebrated vineyards globally.
+                </p>
+                
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-star"></i>
+                        <span>Michelin Star Chef</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-wine-glass-alt"></i>
+                        <span>500+ Wine Labels</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-leaf"></i>
+                        <span>Organic Ingredients</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-music"></i>
+                        <span>Live Piano</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-image">
+                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Virgin Courtyard Interior">
+                <div class="experience-badge">
+                    <span>25</span>
+                    YEARS
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MENU SECTION -->
+<section class="menu" id="menu">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">CULINARY MASTERPIECES</div>
+            <h2 class="section-title">Our Signature Menu</h2>
+        </div>
+        
+        <div class="menu-categories">
+            <button class="category-btn active">APPETIZERS</button>
+            <button class="category-btn">MAIN COURSE</button>
+            <button class="category-btn">DESSERTS</button>
+            <button class="category-btn">WINE LIST</button>
+        </div>
+        
+        <div class="menu-grid">
+            <div class="menu-item">
+                <h4>Truffle Arancini</h4>
+                <p>Wild mushroom risotto, black truffle, parmesan foam</p>
+                <div class="menu-price">₹1850</div>
+            </div>
+            
+            <div class="menu-item">
+                <h4>Kobe Beef Carpaccio</h4>
+                <p>A5 Japanese Wagyu, truffle oil, aged balsamic</p>
+                <div class="menu-price">₹3200</div>
+            </div>
+            
+            <div class="menu-item">
+                <h4>Foie Gras Torchon</h4>
+                <p>Sauternes jelly, brioche, fig compote</p>
+                <div class="menu-price">₹2800</div>
+            </div>
+            
+            <div class="menu-item">
+                <h4>Maine Lobster</h4>
+                <p>Butter poached, saffron sauce, seasonal vegetables</p>
+                <div class="menu-price">₹4500</div>
+            </div>
+            
+            <div class="menu-item">
+                <h4>Wagyu Ribeye</h4>
+                <p>Grade 9+ Australian Wagyu, red wine jus</p>
+                <div class="menu-price">₹6500</div>
+            </div>
+            
+            <div class="menu-item">
+                <h4>Oscietra Caviar</h4>
+                <p>30g serving, blinis, crème fraîche</p>
+                <div class="menu-price">₹8500</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- RESERVATION SECTION -->
+<section class="reservation" id="reservation">
+    <div class="container">
+        <div class="reservation-grid">
+            <div class="reservation-content">
+                <h2>Secure Your Table</h2>
+                <p style="color: var(--cream); margin-bottom: 30px;">
+                    Experience an unforgettable evening of gastronomic excellence. 
+                    Our private dining rooms are available for intimate gatherings 
+                    and special celebrations.
+                </p>
+                
+                <div style="margin-bottom: 20px;">
+                    <i class="fas fa-phone-alt" style="color: var(--gold); margin-right: 15px;"></i>
+                    <span style="color: var(--cream);">+91 172 456 7890</span>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <i class="fas fa-envelope" style="color: var(--gold); margin-right: 15px;"></i>
+                    <span style="color: var(--cream);">reservations@virgincourtyard.com</span>
+                </div>
+                
+                <div>
+                    <i class="fas fa-clock" style="color: var(--gold); margin-right: 15px;"></i>
+                    <span style="color: var(--cream);">12:00 PM - 3:00 PM | 7:00 PM - 12:00 AM</span>
+                </div>
+            </div>
+            
+            <div class="reservation-form">
+                <h3 style="color: var(--gold); margin-bottom: 30px; font-size: 28px;">BOOK A TABLE</h3>
+                
+                <form id="reservationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Last Name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Time</option>
+                                <option>7:00 PM</option>
+                                <option>7:30 PM</option>
+                                <option>8:00 PM</option>
+                                <option>8:30 PM</option>
+                                <option>9:00 PM</option>
+                                <option>9:30 PM</option>
+                                <option>10:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Guests</option>
+                                <option>2 Guests</option>
+                                <option>4 Guests</option>
+                                <option>6 Guests</option>
+                                <option>8 Guests</option>
+                                <option>10+ Guests</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">Occasion</option>
+                                <option>Anniversary</option>
+                                <option>Birthday</option>
+                                <option>Business Dinner</option>
+                                <option>Private Event</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea rows="3" placeholder="Special Requests"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">RESERVE NOW</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION SECTION -->
+<section class="location" id="location">
+    <div class="container">
+        <div class="location-grid">
+            <div class="location-info">
+                <h2>Visit Our Courtyard</h2>
+                
+                <div class="address-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>ADDRESS</h3>
+                    <p>
+                        S.C.O- 1A (backlane),<br>
+                        Sector 7 C Madhya Marg,<br>
+                        Chandigarh, India - 160019
+                    </p>
+                </div>
+                
+                <div class="timing-grid">
+                    <div class="timing-item">
+                        <h4>LUNCH</h4>
+                        <p>12:00 PM - 3:00 PM</p>
+                        <p style="color: var(--gold);">Mon - Sat</p>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h4>DINNER</h4>
+                        <p>7:00 PM - 12:00 AM</p>
+                        <p style="color: var(--gold);">Mon - Sun</p>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h4>BRUNCH</h4>
+                        <p>11:00 AM - 3:30 PM</p>
+                        <p style="color: var(--gold);">Sunday Only</p>
+                    </div>
+                    
+                    <div class="timing-item">
+                        <h4>BAR</h4>
+                        <p>5:00 PM - 1:00 AM</p>
+                        <p style="color: var(--gold);">Daily</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3429.687678902345!2d76.7924!3d30.7225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390fed8c5c1c1c1d%3A0x1c1c1c1c1c1c1c1c!2sSector%207%20C%2C%20Chandigarh%2C%20160019!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="600" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY SECTION -->
+<section class="gallery" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">VISUAL DELIGHTS</div>
+            <h2 class="section-title">Our Gallery</h2>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Interior">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Signature Dish">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/1484516/pexels-photo-1484516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Wine Cellar">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/262047/pexels-photo-262047.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Private Dining">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/374885/pexels-photo-374885.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Chef Special">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Restaurant Ambiance">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/10107754/pexels-photo-10107754.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cocktail Bar">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://images.pexels.com/photos/323682/pexels-photo-323682.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Dessert">
+                <div class="gallery-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>VIRGIN COURTYARD</h3>
+                <p>
+                    Where culinary excellence meets timeless elegance. 
+                    Chandigarh's premier destination for luxury fine dining.
+                </p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>CONTACT</h3>
+                <p>
+                    <i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 10px;"></i>
+                    S.C.O- 1A (backlane), Sector 7 C<br>
+                    Madhya Marg, Chandigarh - 160019
+                </p>
+                <p>
+                    <i class="fas fa-phone" style="color: var(--gold); margin-right: 10px;"></i>
+                    +91 172 456 7890
+                </p>
+                <p>
+                    <i class="fas fa-envelope" style="color: var(--gold); margin-right: 10px;"></i>
+                    reservations@virgincourtyard.com
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>HOURS</h3>
+                <p>
+                    <strong>Lunch:</strong> 12:00 PM - 3:00 PM<br>
+                    <strong>Dinner:</strong> 7:00 PM - 12:00 AM<br>
+                    <strong>Bar:</strong> 5:00 PM - 1:00 AM<br>
+                    <strong>Sunday Brunch:</strong> 11:00 AM - 3:30 PM
+                </p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>NEWSLETTER</h3>
+                <p>Subscribe for exclusive offers and events</p>
+                <div style="display: flex; margin-top: 20px;">
+                    <input type="email" placeholder="Email Address" style="flex: 1; padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid var(--gold); color: var(--cream);">
+                    <button style="background: var(--gold); color: var(--black); padding: 12px 20px; border: none; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Virgin Courtyard - Luxury Fine Dining. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 12px;">Chandigarh's Most Exclusive Dining Destination</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+    // PRELOADER
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            document.getElementById('preloader').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('preloader').style.display = 'none';
+            }, 1000);
+        }, 1500);
+    });
+    
+    // CUSTOM CURSOR
+    const cursor = document.getElementById('cursor');
+    
+    document.addEventListener('mousemove', function(e) {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+    
+    document.addEventListener('mousedown', function() {
+        cursor.style.transform = 'scale(0.8)';
+    });
+    
+    document.addEventListener('mouseup', function() {
+        cursor.style.transform = 'scale(1)';
+    });
+    
+    // NAVBAR SCROLL EFFECT
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 100) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // SMOOTH SCROLLING
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 100,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // MENU CATEGORY BUTTONS
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    
+    // RESERVATION FORM
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const name = this.querySelector('input[placeholder="First Name"]').value + ' ' + 
+                    this.querySelector('input[placeholder="Last Name"]').value;
+        const email = this.querySelector('input[type="email"]').value;
+        const phone = this.querySelector('input[type="tel"]').value;
+        const date = this.querySelector('input[type="date"]').value;
+        const time = this.querySelector('select').value;
+        
+        // Create WhatsApp message for you (admin)
+        const adminMessage = `New Reservation - Virgin Courtyard%0A%0A` +
+                           `Name: ${name}%0A` +
+                           `Email: ${email}%0A` +
+                           `Phone: ${phone}%0A` +
+                           `Date: ${date}%0A` +
+                           `Time: ${time}%0A%0A` +
+                           `Please confirm this booking.`;
+        
+        // Create WhatsApp message for client (confirmation)
+        const clientMessage = `Thank you for choosing Virgin Courtyard!%0A%0A` +
+                            `Your reservation request has been received:%0A` +
+                            `Date: ${date}%0A` +
+                            `Time: ${time}%0A` +
+                            `Guests: ${this.querySelectorAll('select')[1].value}%0A%0A` +
+                            `Our team will confirm your booking shortly.%0A%0A` +
+                            `📍 S.C.O- 1A (backlane), Sector 7 C, Chandigarh%0A` +
+                            `📞 +91 172 456 7890`;
+        
+        // Send to admin (your WhatsApp)
+        window.open(`https://wa.me/919876543210?text=${adminMessage}`, '_blank');
+        
+        // Send to client (their WhatsApp)
+        setTimeout(() => {
+            window.open(`https://wa.me/${phone}?text=${clientMessage}`, '_blank');
+        }, 1000);
+        
+        // Show success message
+        alert('Thank you! Your reservation request has been sent. You will receive confirmation shortly.');
+        
+        // Reset form
+        this.reset();
+    });
+    
+    // ANIMATION ON SCROLL
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeIn 1s ease';
+                entry.target.style.opacity = '1';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.about-content, .menu-item, .gallery-item').forEach(el => {
+        el.style.opacity = '0';
+        observer.observe(el);
+    });
+</script>
+
+</body>
+</html>
